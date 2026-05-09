@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from miPrimerApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('miPrimerApp.urls')),
+    path('cambiar-imagen/', views.cambiar_imagen, name='cambiar_imagen'),
 ]

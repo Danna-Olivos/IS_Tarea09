@@ -13,12 +13,28 @@
 {% endblock %}
 
 {% block contenido %}
-<img src="{% static 'MineralesMinecraft.jpg' %}" width="500"
-    onclick="mensajeAleatorio()"
-    style="cursor:pointer">
+<div style="border: 1px dashed #666; padding: 15px; margin-bottom: 20px; border-radius: 8px;">
+    <h3>Demo de HTMX (Tarea)</h3>
+    
+    <div id="mi-spinner" class="htmx-indicator" style="color: #2ecc71; font-weight: bold; margin-bottom: 10px;">
+        <span>⌛ Procesando cambio de bloque...</span>
+    </div>
 
-<br><br>
+    <div id="contenedor-imagen">
+        <img id="imagen-minecraft" src="{% static 'MineralesMinecraft.jpg' %}" width="500" 
+             onclick="mensajeAleatorio()" style="cursor:pointer">
+    </div>
 
+    <br>
+    <button hx-get="/cambiar-imagen/" 
+            hx-target="#contenedor-imagen" 
+            hx-indicator="#mi-spinner"
+            class="btn-htmx">
+        Intercambiar Imagen (HTMX)
+    </button>
+</div>
+
+<hr> <h3>Navegación del Proyecto</h3>
 <div class="botones">
     <button onclick="irMinerales()">Ir a minerales</button>
     <button onclick="irSaludo()">Ir a saludo</button>
@@ -27,6 +43,7 @@
 
 {% block scripts %}
 <script src="{% static 'minecraft.js' %}" defer></script>
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
 <script>
     function irSaludo(){
         window.location.href = "http://127.0.0.1:8000/saludo/";
