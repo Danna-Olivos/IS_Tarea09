@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}HOOLAAAAAAAAAAAAAAA{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'saludo.css' %}">
+{% endblock %}
+
+{% block header %}
+<h1>Bienvenido a tu página de minerales!</h1>
+<p>Haz click en la imagen para contar los clicks</p>
+{% endblock %}
+
+{% block contenido %}
+<img src="{% static 'mineral.jpeg' %}" width="500"
+    onclick="contarClicks()"
+    style="cursor:pointer">
+
+<p id="contador" style="font-size: 18px; margin-top: 15px; color: #64139b;"></p>
+
+<br>
+
+<div class="botones">
+    <button onclick="irMinecraft()">Ir a minecraft</button>
+    <button onclick="irMinerales()">Ir a minerales</button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'saludo.js' %}" defer></script>
+<script>
+    function irMinecraft(){
+        window.location.href = "http://127.0.0.1:8000/minecraft/";
+    }
+
+    function irMinerales(){
+        window.location.href = "http://127.0.0.1:8000/minerales/";
+    }
+</script>
+{% endblock %}

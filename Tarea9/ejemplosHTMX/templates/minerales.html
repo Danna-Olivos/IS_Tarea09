@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Minerales{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'minerales.css' %}">
+{% endblock %}
+
+{% block header %}
+<h1>Página de Minerales</h1>
+<p>Dónde encontraras puras rocas</p>
+{% endblock %}
+
+{% block contenido %}
+<h1>He aquí una lista de minerales</h1>
+
+<br>
+
+<img src="{% static 'listaMinerales.jpg' %}" width="500">
+
+<br>
+
+<div class="botones">
+    <button onclick="irSaludo()">Ir a saludo</button>
+    <button onclick="irMinecraft()">Ir a minecraft</button>
+    <button onclick="cambiarColor()">🎨 Cambiar color</button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'minerales.js' %}" defer></script>
+<script>
+    function irSaludo(){
+        window.location.href = "http://127.0.0.1:8000/saludo/";
+    }
+
+    function irMinecraft(){
+        window.location.href = "http://127.0.0.1:8000/minecraft/";
+    }
+</script>
+{% endblock %}

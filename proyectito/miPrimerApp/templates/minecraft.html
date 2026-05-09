@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Minecraft{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'minecraft.css' %}">
+{% endblock %}
+
+{% block header %}
+<h1>Minerales de Minecraft</h1>
+<p>Haz click en la imagen para un mensaje aleatorio</p>
+{% endblock %}
+
+{% block contenido %}
+<img src="{% static 'MineralesMinecraft.jpg' %}" width="500"
+    onclick="mensajeAleatorio()"
+    style="cursor:pointer">
+
+<br><br>
+
+<div class="botones">
+    <button onclick="irMinerales()">Ir a minerales</button>
+    <button onclick="irSaludo()">Ir a saludo</button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'minecraft.js' %}" defer></script>
+<script>
+    function irSaludo(){
+        window.location.href = "http://127.0.0.1:8000/saludo/";
+    }
+
+    function irMinerales(){
+        window.location.href = "http://127.0.0.1:8000/minerales/";
+    }
+</script>
+{% endblock %}
