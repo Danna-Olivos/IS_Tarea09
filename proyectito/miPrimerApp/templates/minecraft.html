@@ -39,6 +39,42 @@
     <button onclick="irMinerales()">Ir a minerales</button>
     <button onclick="irSaludo()">Ir a saludo</button>
 </div>
+<!--hx-vals - Mesa de Crafteo -->
+<div class="demo-section">
+    <blockquote>"Pon dos materiales en la mesa de crafteo"</blockquote>
+    
+    <div class="minecraft-input-group">
+        <label>Material 1:</label>
+        <select id="material1">
+            <option value="palo">Palo</option>
+            <option value="diamante">Diamante</option>
+            <option value="madera">Madera</option>
+        </select>
+    </div>
+    
+    <div class="minecraft-input-group">
+        <label>Material 2:</label>
+        <select id="material2">
+            <option value="palo">Palo</option>
+            <option value="carbon">Carbón</option>
+            <option value="madera">Madera</option>
+        </select>
+    </div>
+    
+ 
+    <button class="mining-btn"
+            hx-get="/fabricar/"
+            hx-target="#resultado-crafteo"
+            hx-indicator="#spinner-crafteo"
+            hx-vals='js:{
+                "material1": document.getElementById("material1").value,
+                "material2": document.getElementById("material2").value,
+            }'>
+            Craftear
+    </button>
+    
+    <div id="resultado-crafteo" style="margin-top: 15px;"></div>
+</div>
 {% endblock %}
 
 {% block scripts %}
