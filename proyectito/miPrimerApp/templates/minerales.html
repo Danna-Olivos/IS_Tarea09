@@ -41,11 +41,75 @@
         🎨 Cambiar color
     </button>
 </div>
+
+<!--hx-include - Vender minerales -->
+<div class="demo-section">
+    <p>Vende tus minerales a un aldeano</p>
+    
+    <div id="inventario-minerales">
+        <div class="minecraft-input-group">
+            <label style="color:#888;">Nombre del Aldeano:</label>
+            <input type="text" name="aldeano" value="Bibliotecario Bob" placeholder="Ej: Herrero Hugo">
+        </div>
+        
+        <div class="minecraft-input-group">
+            <label>Carbón (2 esmeraldas c/u):</label>
+            <input type="number" name="mineral_carbon" value="0" min="0" max="64" step="1">
+        </div>
+        
+        <div class="minecraft-input-group">
+            <label>Hierro (5 esmeraldas c/u):</label>
+            <input type="number" name="mineral_hierro" value="0" min="0" max="64" step="1">
+        </div>
+        
+        <div class="minecraft-input-group">
+            <label>Oro (8 esmeraldas c/u):</label>
+            <input type="number" name="mineral_oro" value="0" min="0" max="64" step="1">
+        </div>
+        
+        <div class="minecraft-input-group">
+            <label>Diamante (15 esmeraldas c/u):</label>
+            <input type="number" name="mineral_diamante" value="0" min="0" max="64" step="1">
+        </div>
+        
+        <div class="minecraft-input-group">
+            <label>Esmeralda (20 esmeraldas c/u):</label>
+            <input type="number" name="mineral_esmeralda" value="0" min="0" max="64" step="1">
+        </div>
+        
+        <div class="minecraft-input-group">
+            <label>Redstone (3 esmeraldas c/u):</label>
+            <input type="number" name="mineral_redstone" value="0" min="0" max="64" step="1">
+        </div>
+        
+        <div class="minecraft-input-group">
+            <label>Lapizlázuli (4 esmeraldas c/u):</label>
+            <input type="number" name="mineral_lapizlazuli" value="0" min="0" max="64" step="1">
+        </div>
+    </div>
+    
+    <button class="mining-btn"
+        hx-post="/vender-minerales/"
+        hx-target="#resultado-comercio"
+        hx-indicator="#spinner-comercio"
+        hx-include="#inventario-minerales input"
+        hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    ¡Vender!
+</button>
+    
+    <div id="resultado-comercio" style="margin-top: 15px;"></div>
+</div>
 {% endblock %}
 
 {% block scripts %}
 <script src="{% static 'minerales.js' %}" defer></script>
 <script>
+    // Configurar CSRF token para todas las peticiones HTMX
+    document.body.addEventListener('htmx:configRequest', function(event) {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        event.detail.headers['X-CSRFToken'] = csrfToken;
+    });
+
     function irSaludo(){
         window.location.href = "http://127.0.0.1:8000/saludo/";
     }

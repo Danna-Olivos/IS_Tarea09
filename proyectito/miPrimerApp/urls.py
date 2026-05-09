@@ -12,4 +12,5 @@ urlpatterns = [
     path('cambiar-color/', views.cambiar_color, name='cambiar_color'),
     path('cambiar-imagen/', views.cambiar_imagen, name='cambiar_imagen'),
     path('fabricar/', views.fabricar_item, name='fabricar_item'),
+    path('vender-minerales/', views.vender_minerales, name='vender_minerales'),
 ]       

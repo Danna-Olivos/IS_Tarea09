@@ -107,7 +107,6 @@ def fabricar_item(request):
 def vender_minerales(request):
 
     if request.method == 'POST':
-        # Precios de los minerales (esmeraldas que paga el aldeano)
         tabla_precios = {
             'carbon': 2,
             'hierro': 5,
