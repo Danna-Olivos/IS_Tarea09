@@ -10,4 +10,5 @@ urlpatterns = [
     path('saludo/', views.saludo, name='saludo'),
     path('minecraft/', views.minecraft, name='minecraft'),
     path('cambiar-color/', views.cambiar_color, name='cambiar_color'),
+    path('cambiar-imagen/', views.cambiar_imagen, name='cambiar_imagen'),
 ]       

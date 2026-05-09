@@ -28,3 +28,11 @@
             justify-content:center;
             gap:20px;
             }
+
+.htmx-indicator {
+    display: none;
+}
+/* Esta clase la pone HTMX automáticamente durante la carga */
+.htmx-request .htmx-indicator {
+    display: block;
+}
