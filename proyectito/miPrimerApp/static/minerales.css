@@ -1,0 +1,31 @@
+            body{
+                background-color:#eef2f7;
+                font-family:Arial;
+                text-align:center;
+            }
+
+            img{
+                box-shadow:0px 5px 15px gray;
+                border-radius:10px;
+            }
+
+            button{
+                background-color:#64139b;
+                color:white;
+                border:none;
+                padding:12px 20px;
+                border-radius:8px;
+                font-size:16px;
+                margin-top:20px;
+            }
+
+            button:hover{
+                background-color:#7711ca;
+                
+            }
+            .botones{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            }
+            
