@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>{% block titulo %}Mi Sitio{% endblock %}</title>
     <style>
         * {
@@ -141,7 +142,8 @@
         <p>© 2025 Mi Sitio &mdash; <a href="#">Política de privacidad</a></p>
         {% endblock %}
     </footer>
-
+    <!-- Cargamos HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

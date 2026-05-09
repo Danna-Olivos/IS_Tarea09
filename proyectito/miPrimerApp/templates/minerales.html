@@ -21,10 +21,25 @@
 
 <br>
 
+<div id="color-box" style="margin-top:20px; padding:20px; border-radius:10px; background-color:#eef2f7;">
+    Color actual: fondo inicial
+</div>
+
+<!-- actualizado con hx-swap-oob -->
+<p id="mensaje-color" style="margin-top:15px; font-weight:bold;">
+    Aún no has cambiado el color.
+</p>
+
+
 <div class="botones">
     <button onclick="irSaludo()">Ir a saludo</button>
     <button onclick="irMinecraft()">Ir a minecraft</button>
-    <button onclick="cambiarColor()">🎨 Cambiar color</button>
+    <button
+        hx-get="{% url 'miPrimerApp:cambiar_color' %}"
+        hx-target="#color-box"
+        hx-swap="outerHTML">
+        🎨 Cambiar color
+    </button>
 </div>
 {% endblock %}
 
