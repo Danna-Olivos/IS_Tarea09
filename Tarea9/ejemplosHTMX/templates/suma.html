@@ -1,1 +1,23 @@
-<h1>Holiwas</h1>
+{% extends "base.html" %}
+
+{% block titulo %}Ejemplo hx-swap="none"{% endblock %}
+
+{% block contenido %}
+<div style="text-align: center; border: 2px dashed #64139b; padding: 20px; border-radius: 10px;">
+    <h2>Laboratorio de HTMX: Atributo <code>hx-swap="none"</code></h2>
+    <p>Este botón enviará una señal al servidor de Django, pero <strong>nada</strong> en esta pantalla cambiará.</p>
+
+    <button hx-post="{% url 'log_clic' %}" 
+            hx-swap="none" 
+            hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+            style="background-color: #64139b; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">
+        Ejecutar Petición Silenciosa
+    </button>
+
+    <p style="margin-top: 20px; color: #666; font-style: italic;">
+        (Revisa la consola de la terminal donde corre Django para ver el mensaje del servidor)
+    </p>
+</div>
+
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+{% endblock %}

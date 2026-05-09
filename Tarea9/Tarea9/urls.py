@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ejemplosHTMX import views # Importamos tus vistas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('suma/', views.vista_suma, name='vista_suma'),
+    path('log-clic/', views.registrar_clic_silencioso, name='log_clic'),
 ]
